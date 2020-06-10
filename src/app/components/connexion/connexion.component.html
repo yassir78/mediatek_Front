@@ -1,0 +1,28 @@
+<div class="body shadow p-3">
+<div class="mr-5 text-center">
+  <h1>Connectez-vous</h1>
+</div>
+  <div class="text-center ">
+<img class="my-3 mr-5" src="assets/img/avataaars.svg" height="200px" width="200px">
+  </div>
+    <div>
+  <form  #connexionForm="ngForm" novalidate (ngSubmit)="onSubmit(connexionForm.value)">
+    <div class="mb-1">
+    <input type="email" name="email" class="formStyle" #email="ngModel"  [(ngModel)]="Email" placeholder="Email" required />
+    </div>
+      <span class="text-danger mb-3"  *ngIf="(email.touched || connexionForm.submitted) && email.errors?.required">Email obligatoire</span>
+
+    <div class="mt-3">
+      <div class="mb-1">
+      <input type="password" name="password" class="formStyle" #password="ngModel"  [(ngModel)]="Password" placeholder="Password" required />
+      </div>
+        <span class="text-danger"  *ngIf="(password.touched || connexionForm.submitted) && password.errors?.required && enable">Password is required</span>
+      <span class="text-danger"  *ngIf="(connexionForm.submitted) &&  !enable">mot de passe ou email ivalide</span>
+    </div>
+      <div class="row">
+     <button class="formButton" type="submit">Subscribe</button>
+      <button routerLink="/inscription" class="btn"><a class="  text-white">Inscrivez-vous...</a></button>
+    </div>
+  </form>
+</div>
+</div>
