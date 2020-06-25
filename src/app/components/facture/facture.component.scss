@@ -1,0 +1,51 @@
+@import url('https://fonts.googleapis.com/css2?family=Balsamiq+Sans:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Balsamiq+Sans:wght@700&family=Pacifico&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Balsamiq+Sans:wght@700&family=Pacifico&family=Tenali+Ramakrishna&display=swap');
+.height{
+  height: 30vh;
+  overflow: scroll;
+}
+.hover{
+  td{
+    font-family: 'Balsamiq Sans', cursive;
+    font-family: 'Pacifico', cursive;
+  }
+  cursor: pointer;
+}
+.hover:hover{
+  background-color: #e2979c;
+  td{
+    color: white;
+
+  }
+}
+.hover:active{
+  transform: translateY(-3px);
+
+}
+.client{
+  font-size: 20px;
+  font-family: 'Balsamiq Sans', cursive;
+  font-family: 'Pacifico', cursive;
+}
+.commande{
+  font-size: 20px;
+  font-family: 'Balsamiq Sans', cursive;
+  font-family: 'Pacifico', cursive;
+}
+.outline{
+  outline: none;
+  border: none;
+  background-color: transparent;
+  mat-icon{
+    background-color: transparent;
+    color: black;
+  }
+}
+.outline:active{
+  transform: translateY(-3px);
+}
+.overflow{
+  height: 40vh;
+  overflow: scroll;
+}

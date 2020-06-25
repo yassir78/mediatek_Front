@@ -1,0 +1,27 @@
+@import url('https://fonts.googleapis.com/css?family=Rubik:700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&family=Pacifico&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+.auto{
+  height: 40vh;
+  overflow-y: scroll;
+}
+.title-center{
+  margin: 0 auto;
+}
+.header{
+  font-family: 'Open Sans', sans-serif;
+  font-family: 'Pacifico', cursive;
+  font-size: 20px;
+}
+.client{
+  font-family: 'Press Start 2P', cursive;
+  font-size: 10px;
+}
+.qte{
+  font-size: 25px;
+  font-weight: 700;
+}
+.limit{
+  height: 33vh;
+  overflow-y: scroll;
+}

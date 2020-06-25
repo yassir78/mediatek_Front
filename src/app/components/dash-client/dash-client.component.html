@@ -1,0 +1,82 @@
+<div class="p-5 ">
+  <div *ngIf="clients.length>0;else empty">
+  <div class="container p-4 rounded d-flex justify-content-end mb-5 shadow-lg">
+    <div class="pt-2 mr-4 search">Rechercher:</div>
+  <input class="form-control" type="text" (keyup)="chercher()" [(ngModel)]="Element">
+  </div>
+
+<div class="limit scrollbar " id="style-1">
+<table class="table shadow-lg ">
+  <thead class="thead-dark">
+  <tr>
+    <th scope="col" class="head" (click)="sortByNumCli()">Num_cli</th>
+    <th scope="col"  class="head"  (click)="sortByNom()">Nom</th>
+    <th scope="col"  class="head"  (click)="sortByPrenom()">Prenom</th>
+    <th scope="col"  class="head" >Email</th>
+    <th scope="col"  class="head" >Adresse</th>
+    <th scope="col"  class="head" >Date naissance</th>
+    <th scope="col"  class="head" >Telephone</th>
+    <th scope="col" class="head"  >Editer</th>
+    <th scope="col"  class="head" >Supprimer</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let client of clients">
+    <td class="pt-4 tab">{{client.num_cli}}</td>
+    <td class="pt-4 tab">{{client.nom}}</td>
+    <td class="pt-4 tab">{{client.prenom}}</td>
+    <td class="pt-4 tab">{{client.email}}</td>
+    <td class="pt-4 tab">{{client.adresse}}</td>
+    <td class="pt-4 tab">{{client.date_naissance}}</td>
+    <td class="pt-4 tab">{{client.tel}}</td>
+    <td><button class=" click" (click)="openDialog(client)"><img src="assets/img/edit1.svg.png" width="50px" height="50px" ></button></td>
+    <td><button class=" click" (click)="deleteClient(client)"><img src="assets/img/delete2.png" width="50px" height="50px"></button></td>
+  </tr>
+  </tbody>
+</table>
+</div>
+  </div>
+<ng-template #empty>
+  <div class="display-1 container text-center text-info" >La liste des Clients Est vide</div>
+</ng-template>
+  <div class="width border mt-4 shadow-lg rounded">
+    <div class="tab py-4">Ajouter un Client</div>
+    <table class="table">
+      <thead class="thead-dark">
+      <tr>
+        <th scope="col" class="head text-center">Nom</th>
+        <th scope="col" class="head text-center">Prenom</th>
+        <th scope="col" class="head text-center">Email</th>
+        <th scope="col" class="head text-center">Adresse</th>
+        <th scope="col" class="head text-center">Date naissance</th>
+        <th scope="col" class="head text-center">Telephone</th>
+        <th scope="col" class="head text-center">Mot de passe</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td class="pt-4 tab "><input type="text" class="form-control" placeholder="entrez le nom" [(ngModel)]="addClient.nom"></td>
+        <td class="pt-4 tab "><input type="text" class="form-control" placeholder="entrez le Prenom" [(ngModel)]="addClient.prenom"></td>
+        <td class="pt-4 tab "><input type="text" class=" form-control" placeholder="entrez l'email" [(ngModel)]="addClient.email"></td>
+        <td class="pt-4 tab "><input type="text" class=" form-control" placeholder="entrez l'adresse" [(ngModel)]="addClient.adresse" ></td>
+        <td class="pt-4 tab "><input type="date" class=" form-control" [(ngModel)]="addClient.date_naissance" ></td>
+        <td class="pt-4 tab "><input type="text" class=" form-control" placeholder="entrez le telephone " [(ngModel)]="addClient.tel">  </td>
+        <td class="pt-4 tab "><input type="text" class=" form-control" placeholder="entrez le mot de passe" [(ngModel)]="addClient.password">  </td>
+      </tr>
+      </tbody>
+    </table>
+    <div class="text-center">
+      <button class=" click" (click)="addClientMethod()">
+        <mat-icon class="display-4">done</mat-icon>
+      </button>
+    </div>
+    <div class="display-4 text-center">
+      <span class="text-danger">{{errorMessage}}</span>
+    </div>
+  </div>
+</div>
+
+<div class="container d-flex justify-content-end ">
+  <button class="btn back text-white" routerLink="/adminDash"><mat-icon>reply</mat-icon><span class="ml-2 pb-2" >Revenir à votre Menu</span></button>
+  </div>
+

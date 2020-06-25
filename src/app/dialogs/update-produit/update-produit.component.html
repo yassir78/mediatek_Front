@@ -1,0 +1,25 @@
+<div>
+  <div class="container text-center display-4 font-weight-bold">
+    <h1>Modifier votre Produit</h1>
+  </div>
+  <div class=" pb-5 font">
+    <div class="p-3">
+      <label>Libelle</label>
+      <input class="form-control shadow-lg" type="text" [(ngModel)]="data.produit.libelle">
+    </div>
+    <div class="p-3">
+      <label>Prix</label>
+      <input class="form-control shadow-lg" type="text" [(ngModel)]="data.produit.prix">
+    </div>
+    <div class="p-3">
+      <label>Stock</label>
+      <input class="form-control shadow-lg" type="text" [(ngModel)]="data.produit.stock">
+    </div>
+
+    <div class="text-center">
+      <button class="btn btn-outline-dark" (click)="update(data.produit)">Sauvegarder les modifications</button>
+    </div>
+  </div>
+
+</div>
+

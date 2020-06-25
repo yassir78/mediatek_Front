@@ -6,7 +6,6 @@ export class Client {
   public password:string;
   public adresse:string;
   public date_naissance:Date;
-  public role:string='role';
+  public role:string='client';
   public tel:string;
-
 }

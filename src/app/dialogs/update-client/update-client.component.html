@@ -1,0 +1,39 @@
+<div class="background">
+  <div class="container text-center display-4 font-weight-bold">
+    <h1>Modifier votre Client</h1>
+  </div>
+  <div class=" pb-5 font">
+    <div class="p-3">
+      <label>Nom</label>
+      <input class="form-control shadow-lg" type="text" [(ngModel)]="data.client.nom">
+    </div>
+    <div class="p-3">
+      <label>Prenom</label>
+      <input class="form-control shadow-lg" type="text" [(ngModel)]="data.client.prenom">
+    </div>
+    <div class="p-3">
+      <label>Email</label>
+      <input class="form-control shadow-lg" type="text" [(ngModel)]="data.client.email">
+    </div>
+    <div class="p-3">
+      <label>Adresse</label>
+      <input class="form-control shadow-lg" type="text" [(ngModel)]="data.client.adresse">
+    </div>
+    <div class="p-3">
+      <label>Date naissance</label>
+      <input class="form-control shadow-lg" type="date" [(ngModel)]="data.client.date_naissance">
+    </div>
+    <div class="p-3">
+      <label>Telephone</label>
+      <input class="form-control shadow-lg" type="text" [(ngModel)]="data.client.tel">
+    </div>
+    <div class="p-3">
+      <label>Password</label>
+      <input class="form-control shadow-lg" type="text" [(ngModel)]="data.client.password">
+    </div>
+    <div class="text-center">
+      <button class="btn btn-outline-dark" (click)="update(data.client)">Sauvegarder les modifications</button>
+    </div>
+  </div>
+
+</div>

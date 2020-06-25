@@ -1,0 +1,92 @@
+
+<!-- hello there -->
+<div class="my-4" *ngIf="factures &&  factures.length>0; else noFac">
+<div class="container py-4 mb-5 shadow-lg rounded" *ngFor="let facture of factures" >
+  <mat-toolbar color="primary">
+    <span class="title-center">Facture : {{facture.ref_fact}}</span>
+  </mat-toolbar>
+  <mat-toolbar color="primary">
+
+      <div class="col-6 text-center"> <span class="title-center">Client</span></div>
+      <div class="col-6 text-center"> <span class="title-center">Commandes</span></div>
+
+  </mat-toolbar>
+  <div class="row">
+    <div class="col-md-5">
+
+      <div class="row container mt-3">
+        <div class="col-md-6">
+          <div class="mb-3 header">Num_Cli :</div>
+          <div class="mb-3 header">Nom :</div>
+          <div class="mb-3 header">Prenom :</div>
+          <div class="mb-3 header">Email :</div>
+          <div class="mb-3 header">Adresse :</div>
+          <div class="mb-3 header">Telephone :</div>
+        </div>
+        <div class="col-md-6">
+          <div class="mb-3 client">{{facture.client.num_cli}}</div>
+          <div class="mb-3 client">{{facture.client.nom}}</div>
+          <div class="mb-3 client">{{facture.client.prenom}}</div>
+          <div class="mb-3 client">{{facture.client.email}}</div>
+
+          <div class="mb-3 client">{{facture.client.adresse}}</div>
+          <div class="mb-3 client">{{facture.client.tel}}</div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-7">
+
+      <div class="limit">
+      <div  *ngFor="let commande of facture.ligne_factures">
+        <ul class="list-group text-center">
+          <li class="list-group-item bg-dark text-white">Commande : {{commande.ref}}</li>
+        </ul>
+        <ul class="list-group text-center d-flex">
+          <li class="list-group-item bg-primary">
+          <div class="d-flex justify-content-around font-weight-bolder">
+            <span>Produit</span>
+            <span>Quantite</span>
+          </div>
+          </li>
+        </ul>
+       <div class="row">
+         <div class="col-md-9">
+
+           <div class="row container mt-3">
+             <div class="col-md-6">
+               <div class="mb-3 header">Libelle :</div>
+               <div class="mb-3 header">Prix :</div>
+               <div class="mb-3 header">Stock :</div>
+             </div>
+             <div class="col-md-6">
+               <div class="mb-3 client">{{commande.produit.libelle}} </div>
+               <div class="mb-3 client">{{commande.produit.prix}}</div>
+               <div class="mb-3 client">4{{commande.produit.stock}}</div>
+             </div>
+           </div>
+         </div>
+         <div class="col-md-3">
+           <div class=" mt-5 qte">{{commande.qte}}</div>
+         </div>
+         <div></div>
+       </div>
+
+      </div>
+      </div>
+    </div>
+  </div>
+  <div class="text-center mt-5 mb-1">
+    <button class="btn btn-outline-dark mr-2" (click)="supprimer(facture)">supprimer</button>
+    <button class="btn btn-outline-dark" (click)="downloadPdf(facture)" >Télecharger votre facture</button>
+  </div>
+  <table id="my-table"></table>
+</div>
+</div>
+<ng-template #noFac>
+  <div class="display-1 text-center mt-5 pt-5 text-info">Pas de factures</div>
+</ng-template>
+<div class="text-center">
+<button class="btn btn-outline-dark " routerLink="/adminDash">
+  <mat-icon>reply</mat-icon>
+  <span>Revenir à votre Menu</span></button>
+</div>

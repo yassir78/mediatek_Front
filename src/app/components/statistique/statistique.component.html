@@ -1,0 +1,11 @@
+<div class="container">
+  <div *ngIf="spinner">
+  <app-spinner></app-spinner>
+  </div>
+    <canvas id="myChart"></canvas>
+  <div *ngIf="!spinner">
+  <button class="btn btn-outline-dark " routerLink="/adminDash">
+    <mat-icon>reply</mat-icon>
+    <span>Revenir à votre Menu</span></button>
+  </div>
+  </div>

@@ -33,8 +33,9 @@ export class ConnexionComponent implements OnInit {
         data => {
           if (!data) {
             this.enable = false;
+            console.log('client non existant');
           } else {
-            this.enable = false;
+            this.enable = true;
             this.router.navigate(['/inscription']);
           }
         }, error => {

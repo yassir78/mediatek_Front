@@ -1,0 +1,125 @@
+<div class="container">
+  <div class="text-center mt-2">
+    <h1>Facture N° : {{facture.ref_fact}}</h1>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <div>
+        <mat-accordion>
+          <mat-expansion-panel>
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                <div class="client">Choisir un Client</div>
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+            <div class="height">
+              <table class="table ">
+                <thead>
+                <tr>
+                  <th scope="col">Nom</th>
+                  <th scope="col">Prenom</th>
+                  <th scope="col">Adresse</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr *ngFor="let client of clients" class="hover" (click)="selectClientMethod(client)">
+
+                  <td>{{client.nom}}</td>
+                  <td>{{client.prenom}}</td>
+                  <td>{{client.adresse}}</td>
+                </tr>
+                </tbody>
+              </table>
+            </div>
+          </mat-expansion-panel>
+        </mat-accordion>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <mat-accordion>
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              <div class="client">Choisir un Produit</div>
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <div class="height">
+            <table class="table ">
+              <thead>
+              <tr>
+                <th scope="col">Libelle</th>
+                <th scope="col">Prix</th>
+                <th scope="col">Stock</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr *ngFor="let produit of produits" class="hover" (click)="selectedProduct(produit)">
+                <td>{{produit.libelle}}</td>
+                <td>{{produit.prix}}</td>
+                <td>{{produit.stock}}</td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+        </mat-expansion-panel>
+      </mat-accordion>
+    </div>
+
+  </div>
+  <div>
+    <div *ngIf="selectedClient" class="client mt-2">Client : {{selectedClient}}</div>
+  </div>
+  <div *ngIf="commandes.length > 0;else noCommandes" class=" mt-2">
+    <div class="overflow">
+      <table class="table mt-2">
+        <thead class="thead-dark">
+        <tr>
+          <th scope="col">Ref</th>
+          <th scope="col">Libelle Produit</th>
+          <th scope="col">quantite</th>
+          <th scope="col">Prix</th>
+          <th scope="col">Supprimer</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr class="commande" *ngFor="let commande of commandes">
+
+          <th>{{commande.ref}}</th>
+          <td>{{commande.produit.libelle}}</td>
+          <td>
+            <div>
+              <button class="outline" (click)="removeQte(commande)">
+                <mat-icon>remove</mat-icon>
+              </button>
+              <button class="btn bg-dark text-white w-25">{{commande.qte}}</button>
+              <button class=" outline" (click)="addQte(commande)">
+                <mat-icon>add</mat-icon>
+              </button>
+            </div>
+          </td>
+          <td><span>{{commande.produit.prix * commande.qte}}</span></td>
+          <td>
+            <button class="outline" (click)="delete(commande)">
+              <mat-icon class="mx-1">close</mat-icon>
+            </button>
+          </td>
+        </tr>
+
+        </tbody>
+      </table>
+    </div>
+    <div class="d-flex justify-content-between mt-5 ">
+      <button class="btn btn-outline-dark" (click)="saveFact()">Enregistrer Votre Facture</button>
+
+    </div>
+  </div>
+  <ng-template #noCommandes>
+    <div class="text-info display-4 mt-3">Aucune commande n'est dans votre facture</div>
+  </ng-template>
+<div class="text-center mb-3">
+  <button class="btn btn-outline-dark " routerLink="/adminDash">
+    <mat-icon>reply</mat-icon>
+    <span>Revenir à votre Menu</span></button>
+</div>
+</div>
+

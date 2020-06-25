@@ -1,0 +1,49 @@
+@import url('https://fonts.googleapis.com/css2?family=Balsamiq+Sans:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Balsamiq+Sans:wght@700&family=Pacifico&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Balsamiq+Sans:wght@700&family=Pacifico&family=Tenali+Ramakrishna&display=swap');
+.round{
+  border-radius: 15px;
+}
+.click:active{
+  transform: translateY(-10px);
+}
+.click{
+  background-color: transparent;
+  outline: none;
+  border: none;
+}
+.search{
+  font-family: 'Balsamiq Sans', cursive;
+  font-size: 18px;
+}
+.tab{
+  font-family: 'Balsamiq Sans', cursive;
+  font-family: 'Pacifico', cursive;
+  font-size: 18px;
+}
+.head{
+  font-family: 'Balsamiq Sans', cursive;
+  font-family: 'Pacifico', cursive;
+  font-family: 'Tenali Ramakrishna', sans-serif;
+  font-size: 18px;
+}
+.back{
+  background-color: black;
+
+}
+.limit{
+  height: 40vh;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+.width{
+  width: 90vw;
+  margin: 0 auto;
+  padding: 10px;
+  border-radius: 10%;
+}
+#style-1::-webkit-scrollbar {
+  width: 6px;
+  background-color: #F5F5F5;
+}
+

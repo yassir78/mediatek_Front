@@ -1,0 +1,78 @@
+<div class="p-5 ">
+  <div *ngIf="produits.length>0;else empty">
+    <div class="container p-4 rounded d-flex justify-content-end mb-5 shadow-lg">
+      <div class="pt-2 mr-4 search">Rechercher:</div>
+      <input class="form-control rounded" type="text" [(ngModel)]="Element" (keyup)="chercher() ">
+    </div>
+    <div class="limit shadow-lg rounded">
+      <table class="table shadow-lg round">
+        <thead class="thead-dark">
+        <tr>
+          <th scope="col" class="head text-center" (click)="sortByNumProd()">Num_prod</th>
+          <th scope="col" class="head text-center" (click)="sortBylibelle()">libelle</th>
+          <th scope="col" class="head text-center" (click)="sortByPrix()">prix</th>
+          <th scope="col" class="head text-center" (click)="sortByStock()">stock</th>
+          <th scope="col" class="head text-center">Editer</th>
+          <th scope="col" class="head text-center">Supprimer</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let produit of produits">
+          <td class="pt-4 tab text-center">{{produit.num_prod}}</td>
+          <td class="pt-4 tab text-center">{{produit.libelle}}</td>
+          <td class="pt-4 tab text-center">{{produit.prix}}</td>
+          <td class="pt-4 tab text-center">{{produit.stock}}</td>
+          <td class="text-center">
+            <button class=" click" (click)="edit(produit)"><img src="assets/img/edit1.svg.png" width="50px"
+                                                                height="50px"></button>
+          </td>
+          <td class="text-center">
+            <button class=" click" (click)="deleteproduct(produit)"><img src="assets/img/delete2.png" width="50px"
+                                                                         height="50px"></button>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <ng-template #empty>
+    <div class="display-1 container text-center text-info">La liste des Produits Est vide</div>
+  </ng-template>
+  <div class="container border mt-4 shadow-lg rounded">
+    <div class="tab py-4">Ajouter un produit</div>
+    <table class="table">
+      <thead class="thead-dark">
+      <tr>
+        <th scope="col" class="head text-center">libelle</th>
+        <th scope="col" class="head text-center">prix</th>
+        <th scope="col" class="head text-center">stock</th>
+        <th scope="col" class="head text-center">Ajouter</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td class="pt-4 tab "><input type="text" class="form-control" placeholder="entrez le libelle"
+                                     [(ngModel)]="libelle"></td>
+        <td class="pt-4 tab "><input type="text" class="form-control " [(ngModel)]="prix"></td>
+        <td class="pt-4 tab "><input type="text" class=" form-control " [(ngModel)]="stock"></td>
+        <td class="text-center">
+          <button class=" click" (click)="addProduct()">
+            <mat-icon class="display-4">done</mat-icon>
+          </button>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+    <div class="display-4 text-center">
+      <span class="text-danger display-4">{{errorMessage}}</span>
+    </div>
+  </div>
+</div>
+
+
+<div class="container d-flex justify-content-end ">
+  <button class="btn back text-white mb-5" routerLink="/adminDash">
+    <mat-icon>reply</mat-icon>
+    <span class="ml-2 pb-2">Revenir à votre Menu</span></button>
+</div>
+

@@ -1,0 +1,27 @@
+<div class="container mt-5">
+  <div class="text-center font-weight-bold mb-3">
+  <div class="header">Chiffre d'affaire des Clients</div>
+  </div>
+    <table class="table shadow-lg">
+    <thead class="thead-dark">
+    <tr>
+      <th scope="col " class="head" (click)="sortByNumCli()">Numero Client</th>
+      <th scope="col " class="head" (click)="sortByNom()">Nom</th>
+      <th scope="col " class="head" (click)="sortByPrenom()" >Prenom</th>
+      <th scope="col " class="head" (click)="sortByChiffre()">Chiffre d'affaire</th>
+      <th scope="col " class="head" (click)="sortByCategorie()">Categorie</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let chiffre of chiffres">
+      <td class="tab">{{chiffre.numC}}</td>
+      <td class="tab">{{chiffre.nom}}</td>
+      <td class="tab">{{chiffre.prenom}}</td>
+      <td class="tab">{{chiffre.chiffre_affaire}}</td>
+      <td class="tab">{{chiffre.categorie}}</td>
+    </tr>
+       </tbody>
+  </table>
+
+
+</div>
